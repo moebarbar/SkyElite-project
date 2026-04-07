@@ -17,13 +17,32 @@
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #f9fafb;
-    color: #111827;
+    background-color: #08090F;
+    color: #F0EBE1;
   }
 }
 
 @layer components {
-  .section-divider {
-    border-top: 1px solid rgba(0, 0, 0, 0.06);
+  .gold-line {
+    height: 1px;
+    background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent);
+  }
+
+  .gold-text {
+    background: linear-gradient(135deg, #C9A96E 0%, #E2C98A 50%, #C9A96E 100%);
+    background-size: 200% auto;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .card-dark {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.07);
+  }
+
+  .card-gold {
+    background: rgba(201,169,110,0.06);
+    border: 1px solid rgba(201,169,110,0.3);
   }
 }

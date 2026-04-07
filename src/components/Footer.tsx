@@ -6,31 +6,57 @@ const LINKS = {
 
 export function Footer() {
   return (
-    <footer className="section-divider py-16 px-6 lg:px-20 bg-white">
+    <footer
+      className="relative py-20 px-6 lg:px-20 overflow-hidden"
+      style={{ background: '#06070D' }}
+    >
+      {/* Top gold line */}
+      <div className="gold-line mb-16" />
+
       <div className="max-w-6xl mx-auto">
-        <div className="grid grid-cols-2 lg:grid-cols-4 gap-10 mb-14">
+        <div className="grid grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
           {/* Brand */}
-          <div className="col-span-2 lg:col-span-1 flex flex-col gap-4">
-            <span className="text-xl font-semibold tracking-tight" style={{ color: '#202A36' }}>
+          <div className="col-span-2 lg:col-span-1 flex flex-col gap-5">
+            <span
+              className="text-xl font-light tracking-[0.12em] uppercase"
+              style={{ color: '#C9A96E' }}
+            >
               SkyElite
             </span>
-            <p className="text-sm text-gray-400 leading-relaxed max-w-xs">
+            <p className="text-sm leading-relaxed max-w-xs" style={{ color: '#3A3E4A' }}>
               Premium private aviation accessible to those who demand the best.
             </p>
+            <a
+              href="https://instagram.com/immoebarbar"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="text-xs no-underline transition-colors duration-200 self-start"
+              style={{ color: '#3A3E4A' }}
+              onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
+              onMouseLeave={e => (e.currentTarget.style.color = '#3A3E4A')}
+            >
+              @immoebarbar
+            </a>
           </div>
 
           {/* Link columns */}
           {Object.entries(LINKS).map(([group, items]) => (
-            <div key={group} className="flex flex-col gap-4">
-              <span className="text-xs font-semibold tracking-[0.15em] uppercase text-gray-400">
+            <div key={group} className="flex flex-col gap-5">
+              <span
+                className="text-xs font-semibold tracking-[0.2em] uppercase"
+                style={{ color: '#C9A96E' }}
+              >
                 {group}
               </span>
-              <ul className="flex flex-col gap-2.5 list-none">
+              <ul className="flex flex-col gap-3 list-none">
                 {items.map(item => (
                   <li key={item}>
                     <a
                       href="#"
-                      className="text-sm text-gray-500 hover:text-gray-900 transition-colors no-underline"
+                      className="text-sm transition-colors duration-200 no-underline"
+                      style={{ color: '#3A3E4A' }}
+                      onMouseEnter={e => (e.currentTarget.style.color = '#A89E8F')}
+                      onMouseLeave={e => (e.currentTarget.style.color = '#3A3E4A')}
                     >
                       {item}
                     </a>
@@ -42,11 +68,16 @@ export function Footer() {
         </div>
 
         {/* Bottom bar */}
-        <div className="border-t border-gray-100 pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-3">
-          <p className="text-xs text-gray-400">
+        <div
+          className="pt-8 flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4"
+          style={{ borderTop: '1px solid rgba(255,255,255,0.04)' }}
+        >
+          <p className="text-xs" style={{ color: '#2A2E3A' }}>
             © {new Date().getFullYear()} SkyElite Aviation. All rights reserved.
           </p>
-          <p className="text-xs text-gray-300">Fly higher. Live better.</p>
+          <p className="text-xs tracking-[0.15em] uppercase" style={{ color: '#2A2E3A' }}>
+            Fly higher. Live better.
+          </p>
         </div>
       </div>
     </footer>

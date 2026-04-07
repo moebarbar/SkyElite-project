@@ -34,50 +34,81 @@ export function FAQ() {
   const [open, setOpen] = useState<number | null>(null)
 
   return (
-    <section id="faq" className="section-divider py-28 px-6 lg:px-20 bg-gray-50">
-      <div ref={ref} className="max-w-3xl mx-auto">
+    <section id="faq" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-20 bg-night overflow-hidden">
+      <div
+        className="absolute bottom-0 right-0 w-72 sm:w-[500px] h-72 sm:h-[500px] pointer-events-none"
+        style={{
+          background: 'radial-gradient(circle, rgba(201,169,110,0.04) 0%, transparent 70%)',
+          transform: 'translate(30%, 30%)',
+        }}
+      />
+
+      <div className="gold-line" />
+
+      <div ref={ref} className="max-w-3xl mx-auto pt-16 sm:pt-20">
         {/* Header */}
         <div
-          className="mb-14 transition-all duration-1000"
+          className="mb-12 sm:mb-16 transition-all duration-1000"
           style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(24px)' }}
         >
-          <span className="text-xs font-semibold tracking-[0.18em] uppercase text-gray-400 block mb-4">
+          <span
+            className="text-xs font-semibold tracking-[0.25em] uppercase block mb-5"
+            style={{ color: '#C9A96E' }}
+          >
             FAQ
           </span>
           <h2
-            className="text-4xl lg:text-5xl font-normal tracking-tight"
-            style={{ color: '#202A36' }}
+            className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight"
+            style={{ color: '#F0EBE1' }}
           >
-            Questions, answered.
+            Questions,{' '}
+            <span className="gold-text">answered.</span>
           </h2>
         </div>
 
         {/* Accordion */}
         <div
-          className="flex flex-col divide-y divide-gray-200 transition-all duration-1000"
+          className="transition-all duration-1000"
           style={{ opacity: inView ? 1 : 0, transitionDelay: '150ms' }}
         >
           {FAQS.map(({ q, a }, i) => (
-            <div key={q} className="py-5">
+            <div
+              key={q}
+              style={{ borderBottom: '1px solid rgba(255,255,255,0.07)' }}
+            >
               <button
-                className="w-full flex items-start justify-between gap-4 text-left"
+                className="w-full flex items-start justify-between gap-6 text-left py-5 sm:py-6"
                 onClick={() => setOpen(open === i ? null : i)}
+                aria-expanded={open === i}
               >
                 <span
-                  className="text-base font-medium leading-snug"
-                  style={{ color: '#202A36' }}
+                  className="text-sm sm:text-base font-medium leading-snug transition-colors duration-200"
+                  style={{ color: open === i ? '#C9A96E' : '#A89E8F' }}
                 >
                   {q}
                 </span>
-                <span className="flex-shrink-0 mt-0.5 text-gray-400">
-                  {open === i ? <Minus size={16} /> : <Plus size={16} />}
+                <span
+                  className="flex-shrink-0 mt-0.5 w-5 h-5 rounded-full flex items-center justify-center transition-all duration-200"
+                  aria-hidden="true"
+                  style={{
+                    background: open === i ? 'rgba(201,169,110,0.15)' : 'rgba(255,255,255,0.05)',
+                    color: open === i ? '#C9A96E' : '#555A68',
+                  }}
+                >
+                  {open === i ? <Minus size={11} /> : <Plus size={11} />}
                 </span>
               </button>
-              {open === i && (
-                <p className="mt-3 text-sm text-gray-500 leading-relaxed pr-8">
+              <div
+                className="overflow-hidden transition-all duration-300"
+                style={{ maxHeight: open === i ? '300px' : '0px' }}
+              >
+                <p
+                  className="text-sm leading-relaxed pb-5 sm:pb-6 pr-8 sm:pr-10"
+                  style={{ color: '#555A68' }}
+                >
                   {a}
                 </p>
-              )}
+              </div>
             </div>
           ))}
         </div>
