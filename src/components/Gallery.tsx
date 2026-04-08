@@ -7,10 +7,11 @@ const PHOTOS = [
   { src: 'https://i.imgur.com/iffZS7f.jpg', alt: 'Private jet exterior' },
   { src: 'https://i.imgur.com/fQXEdpx.jpg', alt: 'Private aviation' },
   { src: 'https://i.imgur.com/QDA211b.jpg', alt: 'Luxury cabin interior' },
+  { src: 'https://i.imgur.com/ddR3Vdp.jpg', alt: 'Private jet detail' },
 ]
 
 // Parallax depth factor per photo — positive = up, negative = down
-const FACTORS = [0.07, -0.05, 0.1, -0.08, 0.06]
+const FACTORS = [0.07, -0.05, 0.1, -0.08, 0.06, -0.07]
 
 export function Gallery() {
   const { ref, inView } = useInView()
@@ -69,19 +70,34 @@ export function Gallery() {
             transition: 'opacity 0.9s ease 0.1s',
           }}
         >
-          {/* Photo 1 — tall left (col 1-4, rows 1-3) */}
+          {/* Photo 1 — tall left (col 1-4, rows 1-2) */}
           <div
             className="overflow-hidden rounded-2xl"
             style={{
               gridColumn: '1 / 5',
-              gridRow: '1 / 4',
-              aspectRatio: '2/3',
+              gridRow: '1 / 3',
+              aspectRatio: '3/4',
               opacity: inView ? 1 : 0,
               transform: inView ? 'none' : 'translateY(24px)',
               transition: 'opacity 0.6s ease, transform 0.6s ease 0ms',
             }}
           >
             <img src={PHOTOS[0].src} alt={PHOTOS[0].alt} style={imgStyle(0)} loading="lazy" />
+          </div>
+
+          {/* Photo 6 — bottom left (col 1-4, row 3) */}
+          <div
+            className="overflow-hidden rounded-2xl"
+            style={{
+              gridColumn: '1 / 5',
+              gridRow: '3 / 4',
+              aspectRatio: '16/6',
+              opacity: inView ? 1 : 0,
+              transform: inView ? 'none' : 'translateY(24px)',
+              transition: 'opacity 0.6s ease, transform 0.6s ease 400ms',
+            }}
+          >
+            <img src={PHOTOS[5].src} alt={PHOTOS[5].alt} style={imgStyle(5)} loading="lazy" />
           </div>
 
           {/* Photo 2 — wide top right (col 5-12, row 1) */}
