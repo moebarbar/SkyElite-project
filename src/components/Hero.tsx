@@ -115,8 +115,6 @@ export function Hero() {
             onMouseLeave={e => (e.currentTarget.style.color = '#C9A96E')}
           >
             Built with ❤️ by Moe Barbar
-            <span style={{ color: 'rgba(201,169,110,0.4)' }}>·</span>
-            @immoebarbar
           </a>
         </div>
       </div>

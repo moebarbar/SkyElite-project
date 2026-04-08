@@ -39,7 +39,7 @@ export function Footer() {
               onMouseEnter={e => (e.currentTarget.style.color = '#C9A96E')}
               onMouseLeave={e => (e.currentTarget.style.color = 'rgba(201,169,110,0.5)')}
             >
-              @immoebarbar
+              Moe Barbar
             </a>
           </div>
 
