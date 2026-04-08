@@ -29,7 +29,7 @@ export function Gallery() {
     return () => window.removeEventListener('scroll', update)
   }, [])
 
-  const img = (i: number) => (
+  const img = (i: number, objectPosition = 'center') => (
     <img
       src={PHOTOS[i].src}
       alt={PHOTOS[i].alt}
@@ -38,6 +38,7 @@ export function Gallery() {
         width: '100%',
         height: '100%',
         objectFit: 'cover',
+        objectPosition,
         willChange: 'transform',
         transform: `translateY(${parallax * FACTORS[i]}px) scale(1.08)`,
         transition: 'transform 0.1s linear',
@@ -80,12 +81,9 @@ export function Gallery() {
             <div className="overflow-hidden rounded-2xl flex-1">
               {img(0)}
             </div>
-            {/* Photo 6 — compact strip at bottom */}
-            <div
-              className="overflow-hidden rounded-2xl flex-shrink-0"
-              style={{ height: 'clamp(120px, 16vh, 180px)' }}
-            >
-              {img(5)}
+            {/* Photo 6 — fills remaining left-column space, face visible at top */}
+            <div className="overflow-hidden rounded-2xl flex-1">
+              {img(5, 'center top')}
             </div>
           </div>
 
