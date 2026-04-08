@@ -1,5 +1,5 @@
 import { useInView } from '../hooks/useInView'
-import { useRef } from 'react'
+import { useRef, useState, useCallback } from 'react'
 import { Clock, Globe, Shield, Star, Headphones, Utensils } from 'lucide-react'
 
 const BENEFITS = [
@@ -44,6 +44,15 @@ const BENEFITS = [
 export function Benefits() {
   const { ref, inView } = useInView()
   const trackRef = useRef<HTMLDivElement>(null)
+  const [activeIndex, setActiveIndex] = useState(0)
+
+  const onScroll = useCallback(() => {
+    const el = trackRef.current
+    if (!el) return
+    const cardWidth = el.scrollWidth / BENEFITS.length
+    const index = Math.round(el.scrollLeft / cardWidth)
+    setActiveIndex(Math.min(index, BENEFITS.length - 1))
+  }, [])
 
   // Mouse drag scroll
   const drag = useRef({ active: false, startX: 0, scrollLeft: 0 })
@@ -113,6 +122,7 @@ export function Benefits() {
             opacity: inView ? 1 : 0,
             transition: 'opacity 0.7s ease 0.2s',
           }}
+          onScroll={onScroll}
           onMouseDown={onMouseDown}
           onMouseMove={onMouseMove}
           onMouseUp={onMouseUp}
@@ -188,12 +198,22 @@ export function Benefits() {
         {/* Progress dots */}
         <div className="flex justify-center gap-1.5 mt-6 px-4">
           {BENEFITS.map((_, i) => (
-            <div
+            <button
               key={i}
+              aria-label={`Go to benefit ${i + 1}`}
+              onClick={() => {
+                const el = trackRef.current
+                if (!el) return
+                const cardWidth = el.scrollWidth / BENEFITS.length
+                el.scrollTo({ left: cardWidth * i, behavior: 'smooth' })
+              }}
               className="h-px transition-all duration-300"
               style={{
-                width: i === 0 ? '24px' : '12px',
-                background: i === 0 ? '#8B6C1A' : '#D4C9BC',
+                width: i === activeIndex ? '28px' : '12px',
+                background: i === activeIndex ? '#8B6C1A' : '#D4C9BC',
+                border: 'none',
+                padding: 0,
+                cursor: 'pointer',
               }}
             />
           ))}
