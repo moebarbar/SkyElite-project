@@ -52,135 +52,172 @@ export function Rates() {
   const { ref, inView } = useInView()
 
   return (
-    <section id="rates" className="relative py-24 sm:py-32 px-4 sm:px-6 lg:px-20 bg-night overflow-hidden">
-      <div
-        className="absolute inset-0 pointer-events-none"
-        style={{
-          background: 'radial-gradient(ellipse 80% 50% at 50% 100%, rgba(201,169,110,0.04) 0%, transparent 70%)',
-        }}
-      />
+    <section
+      id="rates"
+      className="py-24 sm:py-32 px-4 sm:px-8 lg:px-16"
+      style={{ background: '#EFEBE3' }}
+    >
+      <div ref={ref} className="max-w-7xl mx-auto">
 
-      <div className="gold-line" />
-
-      <div ref={ref} className="max-w-6xl mx-auto pt-16 sm:pt-20">
         {/* Header */}
         <div
-          className="text-center mb-14 sm:mb-20 transition-all duration-1000"
-          style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(24px)' }}
+          className="flex flex-col sm:flex-row sm:items-end justify-between gap-8 mb-16 sm:mb-20 transition-all duration-700"
+          style={{ opacity: inView ? 1 : 0, transform: inView ? 'none' : 'translateY(20px)' }}
         >
-          <span
-            className="text-xs font-semibold tracking-[0.25em] uppercase block mb-5"
-            style={{ color: '#C9A96E' }}
+          <div>
+            <div className="flex items-center gap-4 mb-5">
+              <div className="h-px w-8" style={{ background: '#8B6C1A' }} />
+              <span
+                className="text-xs font-semibold tracking-[0.25em] uppercase"
+                style={{ color: '#8B6C1A' }}
+              >
+                Rates
+              </span>
+            </div>
+            <h2
+              className="text-4xl sm:text-5xl lg:text-6xl font-light tracking-tight leading-tight"
+              style={{ color: '#1C1E28' }}
+            >
+              Transparent pricing.<br />
+              <span style={{ color: '#8B6C1A' }}>Exceptional value.</span>
+            </h2>
+          </div>
+          <p
+            className="text-sm leading-relaxed max-w-xs sm:text-right"
+            style={{ color: '#A89E95' }}
           >
-            Rates
-          </span>
-          <h2
-            className="text-3xl sm:text-4xl lg:text-5xl font-light tracking-tight"
-            style={{ color: '#F0EBE1' }}
-          >
-            Transparent pricing.<br />
-            <span className="gold-text">Exceptional value.</span>
-          </h2>
+            All rates include crew, ground handling, and standard catering. No hidden fees.
+          </p>
         </div>
 
         {/* Cards */}
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-5">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-4 sm:gap-6">
           {TIERS.map(({ name, tagline, price, unit, features, featured }, i) => (
             <div
               key={name}
-              className={`rounded-2xl p-6 sm:p-8 flex flex-col gap-6 transition-all duration-700 relative overflow-hidden ${
-                featured ? 'card-gold' : 'card-dark'
-              }`}
+              className="card-cream-hover rounded-2xl overflow-hidden flex flex-col transition-all duration-700 relative"
               style={{
+                background: featured ? '#1C1E28' : '#FFFFFF',
+                border: featured ? 'none' : '1px solid #E2DAD0',
                 opacity: inView ? 1 : 0,
                 transform: inView ? 'none' : 'translateY(28px)',
                 transitionDelay: `${i * 120 + 150}ms`,
               }}
             >
-              {featured && (
+              {/* Gold top accent */}
+              <div
+                className="h-0.5 w-full"
+                style={{
+                  background: featured
+                    ? 'linear-gradient(90deg, #C9A96E, #E2C98A, #C9A96E)'
+                    : '#E2DAD0',
+                }}
+              />
+
+              <div className="p-7 sm:p-8 flex flex-col gap-6 flex-1">
+                {/* Badge */}
+                {featured && (
+                  <span
+                    className="self-start text-xs font-semibold tracking-[0.18em] uppercase px-3 py-1 rounded-full"
+                    style={{
+                      color: '#1C1E28',
+                      background: 'linear-gradient(135deg, #C9A96E, #E2C98A)',
+                    }}
+                  >
+                    Most Popular
+                  </span>
+                )}
+
+                {/* Name */}
+                <div>
+                  <h3
+                    className="text-2xl font-light tracking-tight mb-1"
+                    style={{ color: featured ? '#F7F4EF' : '#1C1E28' }}
+                  >
+                    {name}
+                  </h3>
+                  <p
+                    className="text-sm"
+                    style={{ color: featured ? 'rgba(247,244,239,0.45)' : '#A89E95' }}
+                  >
+                    {tagline}
+                  </p>
+                </div>
+
+                {/* Price */}
                 <div
-                  className="absolute inset-0 pointer-events-none"
-                  style={{
-                    background: 'radial-gradient(ellipse 100% 60% at 50% 0%, rgba(201,169,110,0.1) 0%, transparent 70%)',
-                  }}
-                />
-              )}
-
-              {featured && (
-                <span
-                  className="self-start text-xs font-semibold tracking-[0.2em] uppercase px-3 py-1 rounded-full"
-                  style={{
-                    color: '#C9A96E',
-                    border: '1px solid rgba(201,169,110,0.4)',
-                    background: 'rgba(201,169,110,0.08)',
-                  }}
+                  className="pb-6"
+                  style={{ borderBottom: `1px solid ${featured ? 'rgba(255,255,255,0.08)' : '#E2DAD0'}` }}
                 >
-                  Most Popular
-                </span>
-              )}
+                  <p
+                    className="text-4xl sm:text-5xl font-light tracking-tight"
+                    style={{ color: featured ? '#C9A96E' : '#1C1E28' }}
+                  >
+                    {price}
+                  </p>
+                  <p
+                    className="text-xs mt-1.5 tracking-[0.1em] uppercase"
+                    style={{ color: featured ? 'rgba(247,244,239,0.35)' : '#A89E95' }}
+                  >
+                    {unit}
+                  </p>
+                </div>
 
-              <div>
-                <h3
-                  className="text-lg sm:text-xl font-medium mb-1.5 tracking-wide"
-                  style={{ color: featured ? '#C9A96E' : '#F0EBE1' }}
-                >
-                  {name}
-                </h3>
-                <p className="text-sm" style={{ color: '#555A68' }}>{tagline}</p>
-              </div>
+                {/* Features */}
+                <ul className="flex flex-col gap-3 flex-1">
+                  {features.map(f => (
+                    <li key={f} className="flex items-start gap-3">
+                      <Check
+                        size={13}
+                        className="mt-0.5 flex-shrink-0"
+                        style={{ color: featured ? '#C9A96E' : '#8B6C1A' }}
+                      />
+                      <span
+                        className="text-sm"
+                        style={{ color: featured ? 'rgba(247,244,239,0.65)' : '#5A5248' }}
+                      >
+                        {f}
+                      </span>
+                    </li>
+                  ))}
+                </ul>
 
-              <div className="pb-5" style={{ borderBottom: '1px solid rgba(255,255,255,0.06)' }}>
-                <p
-                  className="text-3xl sm:text-4xl font-light tracking-tight"
-                  style={{ color: featured ? '#C9A96E' : '#F0EBE1' }}
-                >
-                  {price}
-                </p>
-                <p className="text-xs mt-1.5 tracking-[0.1em] uppercase" style={{ color: '#555A68' }}>
-                  {unit}
-                </p>
-              </div>
-
-              <ul className="flex flex-col gap-3 flex-1">
-                {features.map(f => (
-                  <li key={f} className="flex items-start gap-3">
-                    <Check
-                      size={13}
-                      className="mt-0.5 flex-shrink-0"
-                      style={{ color: featured ? '#C9A96E' : '#555A68' }}
-                    />
-                    <span className="text-sm" style={{ color: '#7A7D8A' }}>{f}</span>
-                  </li>
-                ))}
-              </ul>
-
-              <a
-                href="#contact"
-                className="mt-2 block text-center py-3.5 rounded-full text-xs sm:text-sm font-semibold tracking-[0.08em] transition-all no-underline"
-                style={
-                  featured
-                    ? { background: 'linear-gradient(135deg, #C9A96E, #E2C98A)', color: '#08090F' }
-                    : {
-                        background: 'rgba(255,255,255,0.04)',
-                        border: '1px solid rgba(255,255,255,0.1)',
-                        color: '#A89E8F',
-                      }
-                }
-                onMouseEnter={e => {
-                  if (!featured) {
-                    e.currentTarget.style.borderColor = 'rgba(201,169,110,0.3)'
-                    e.currentTarget.style.color = '#C9A96E'
+                {/* CTA */}
+                <a
+                  href="#contact"
+                  className="mt-4 block text-center py-3.5 rounded-full text-xs font-semibold tracking-[0.1em] uppercase no-underline transition-all duration-200"
+                  style={
+                    featured
+                      ? {
+                          background: 'linear-gradient(135deg, #C9A96E, #E2C98A)',
+                          color: '#1C1E28',
+                        }
+                      : {
+                          background: 'transparent',
+                          border: '1px solid #D4C9BC',
+                          color: '#5A5248',
+                        }
                   }
-                }}
-                onMouseLeave={e => {
-                  if (!featured) {
-                    e.currentTarget.style.borderColor = 'rgba(255,255,255,0.1)'
-                    e.currentTarget.style.color = '#A89E8F'
-                  }
-                }}
-              >
-                {price === 'Custom' ? 'Contact Us' : 'Reserve Now'}
-              </a>
+                  onMouseEnter={e => {
+                    if (!featured) {
+                      e.currentTarget.style.borderColor = '#8B6C1A'
+                      e.currentTarget.style.color = '#8B6C1A'
+                    } else {
+                      e.currentTarget.style.opacity = '0.88'
+                    }
+                  }}
+                  onMouseLeave={e => {
+                    if (!featured) {
+                      e.currentTarget.style.borderColor = '#D4C9BC'
+                      e.currentTarget.style.color = '#5A5248'
+                    } else {
+                      e.currentTarget.style.opacity = '1'
+                    }
+                  }}
+                >
+                  {price === 'Custom' ? 'Contact Us' : 'Reserve Now'}
+                </a>
+              </div>
             </div>
           ))}
         </div>

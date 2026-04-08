@@ -17,32 +17,36 @@
     font-family: 'Inter', sans-serif;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
-    background-color: #08090F;
-    color: #F0EBE1;
+    background-color: #F7F4EF;
+    color: #1C1E28;
   }
 }
 
 @layer components {
-  .gold-line {
+  .gold-rule {
     height: 1px;
-    background: linear-gradient(90deg, transparent, rgba(201,169,110,0.5), transparent);
+    background: linear-gradient(90deg, transparent, rgba(139,108,26,0.25), transparent);
   }
 
-  .gold-text {
-    background: linear-gradient(135deg, #C9A96E 0%, #E2C98A 50%, #C9A96E 100%);
+  .gold-text-dark {
+    background: linear-gradient(135deg, #8B6C1A 0%, #C9A96E 60%, #8B6C1A 100%);
     background-size: 200% auto;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
   }
 
-  .card-dark {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.07);
+  .card-cream {
+    background: #FFFFFF;
+    border: 1px solid #E2DAD0;
   }
 
-  .card-gold {
-    background: rgba(201,169,110,0.06);
-    border: 1px solid rgba(201,169,110,0.3);
+  .card-cream-hover {
+    transition: box-shadow 0.3s ease, transform 0.3s ease;
+  }
+
+  .card-cream-hover:hover {
+    box-shadow: 0 8px 40px rgba(28,30,40,0.08);
+    transform: translateY(-2px);
   }
 }

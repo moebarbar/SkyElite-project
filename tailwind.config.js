@@ -7,17 +7,21 @@ export default {
         sans: ['Inter', 'sans-serif'],
       },
       colors: {
-        brand: '#202A36',
-        'brand-hover': '#1a2229',
-        'brand-light': '#2d3e52',
-        gold: '#C9A96E',
+        // Hero / light palette
+        ink: '#1C1E28',
+        'ink-2': '#3A3530',
+        'ink-3': '#7A7060',
+        'ink-4': '#A89E95',
+        cream: '#F7F4EF',
+        'cream-2': '#EFEBE3',
+        'cream-3': '#E2DAD0',
+        'cream-4': '#D4C9BC',
+        'gold-dark': '#8B6C1A',
+        'gold-mid': '#C9A96E',
         'gold-light': '#E2C98A',
-        'gold-dim': '#8A6E42',
+        // Dark palette (footer)
         night: '#08090F',
         'night-2': '#0D0F1A',
-        'night-3': '#12141F',
-        cream: '#F0EBE1',
-        'cream-dim': '#A89E8F',
       },
       keyframes: {
         fadeUp: {
@@ -28,9 +32,9 @@ export default {
           from: { opacity: '0' },
           to: { opacity: '1' },
         },
-        shimmer: {
-          '0%': { backgroundPosition: '-200% center' },
-          '100%': { backgroundPosition: '200% center' },
+        marquee: {
+          from: { transform: 'translateX(0)' },
+          to: { transform: 'translateX(-50%)' },
         },
       },
       animation: {
@@ -39,7 +43,7 @@ export default {
         'fade-up-delay-2': 'fadeUp 0.8s ease 0.3s both',
         'fade-up-delay-3': 'fadeUp 0.8s ease 0.45s both',
         'fade-in': 'fadeIn 1s ease both',
-        shimmer: 'shimmer 3s linear infinite',
+        marquee: 'marquee 24s linear infinite',
       },
     },
   },

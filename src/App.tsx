@@ -8,13 +8,15 @@ import { Footer } from './components/Footer'
 
 export default function App() {
   return (
-    <div className="min-h-screen bg-night">
+    <div className="min-h-screen bg-cream">
       <Hero />
-      <Story />
-      <Rates />
-      <Benefits />
-      <FAQ />
-      <Contact />
+      <main>
+        <Story />
+        <Rates />
+        <Benefits />
+        <FAQ />
+        <Contact />
+      </main>
       <Footer />
     </div>
   )
