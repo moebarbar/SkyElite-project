@@ -22,6 +22,15 @@
   }
 }
 
+/* Stats grid responsive borders */
+.stats-item { border-right: 1px solid #E2DAD0; border-bottom: 1px solid #E2DAD0; }
+.stats-item:nth-child(2n) { border-right: none; }         /* mobile: no right on col 2 */
+.stats-item:nth-child(n+3) { border-bottom: none; }       /* mobile: no bottom on row 2 */
+@media (min-width: 1024px) {
+  .stats-item { border-right: 1px solid #E2DAD0; border-bottom: none; }
+  .stats-item:last-child { border-right: none; }           /* desktop: only last has no right */
+}
+
 @layer components {
   .gold-rule {
     height: 1px;

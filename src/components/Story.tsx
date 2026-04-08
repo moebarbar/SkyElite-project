@@ -108,45 +108,41 @@ export function Story() {
           </div>
         </div>
 
-        {/* Stats grid */}
+        {/* Stats grid — 2-col mobile, 4-col desktop */}
         <div
-          className="grid grid-cols-2 lg:grid-cols-4 mt-20 sm:mt-28 border-t transition-all duration-1000"
-          style={{
-            borderColor: '#E2DAD0',
-            opacity: inView ? 1 : 0,
-            transitionDelay: '350ms',
-          }}
+          className="mt-20 sm:mt-28 transition-all duration-1000"
+          style={{ opacity: inView ? 1 : 0, transitionDelay: '350ms' }}
         >
-          {STATS.map(({ value, label }, i) => (
-            <div
-              key={label}
-              className="py-8 sm:py-10 px-6 sm:px-8 border-r last:border-r-0 relative group overflow-hidden"
-              style={{
-                borderColor: '#E2DAD0',
-                borderBottom: i < 2 ? '1px solid #E2DAD0' : 'none',
-              }}
-            >
-              {/* Hover fill */}
-              <div
-                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                style={{ background: '#EFEBE3' }}
-              />
-              <div className="relative">
-                <p
-                  className="text-4xl sm:text-5xl font-light tracking-tight mb-2"
-                  style={{ color: '#1C1E28' }}
+          <div style={{ border: '1px solid #E2DAD0' }}>
+            <div className="grid grid-cols-2 lg:grid-cols-4">
+              {STATS.map(({ value, label }) => (
+                <div
+                  key={label}
+                  className="stats-item py-8 sm:py-10 px-6 sm:px-8 relative group overflow-hidden"
                 >
-                  {value}
-                </p>
-                <p
-                  className="text-xs tracking-[0.15em] uppercase"
-                  style={{ color: '#A89E95' }}
-                >
-                  {label}
-                </p>
-              </div>
+                  {/* Hover fill */}
+                  <div
+                    className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                    style={{ background: '#EFEBE3' }}
+                  />
+                  <div className="relative">
+                    <p
+                      className="text-4xl sm:text-5xl font-light tracking-tight mb-2"
+                      style={{ color: '#1C1E28' }}
+                    >
+                      {value}
+                    </p>
+                    <p
+                      className="text-xs tracking-[0.15em] uppercase"
+                      style={{ color: '#A89E95' }}
+                    >
+                      {label}
+                    </p>
+                  </div>
+                </div>
+              ))}
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>
