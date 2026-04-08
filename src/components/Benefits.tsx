@@ -55,10 +55,7 @@ export function Benefits() {
           <div>
             <div className="flex items-center gap-4 mb-5">
               <div className="h-px w-8" style={{ background: '#8B6C1A' }} />
-              <span
-                className="text-xs font-semibold tracking-[0.25em] uppercase"
-                style={{ color: '#8B6C1A' }}
-              >
+              <span className="text-xs font-semibold tracking-[0.25em] uppercase" style={{ color: '#8B6C1A' }}>
                 Benefits
               </span>
             </div>
@@ -72,110 +69,54 @@ export function Benefits() {
           </div>
         </div>
 
-        {/* Benefits grid */}
+        {/* Single unified grid — 1 col mobile, 2 col tablet, 3 col desktop */}
         <div
-          className="border-t"
-          style={{ borderColor: '#E2DAD0' }}
+          className="benefits-grid transition-all duration-700"
+          style={{
+            border: '1px solid #E2DAD0',
+            display: 'grid',
+            gridTemplateColumns: 'repeat(1, 1fr)',
+            opacity: inView ? 1 : 0,
+            transform: inView ? 'none' : 'translateY(24px)',
+            transitionDelay: '150ms',
+          }}
         >
-          {/* Row 1 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {BENEFITS.slice(0, 3).map(({ icon: Icon, num, title, desc }, i) => (
+          {BENEFITS.map(({ icon: Icon, num, title, desc }, i) => (
+            <div
+              key={title}
+              className="benefit-item group p-8 sm:p-10 relative overflow-hidden transition-all duration-700"
+              style={{ transitionDelay: `${i * 80 + 200}ms` }}
+            >
+              {/* Hover bg */}
               <div
-                key={title}
-                className="group p-8 sm:p-10 border-r border-b relative overflow-hidden transition-all duration-700"
-                style={{
-                  borderColor: '#E2DAD0',
-                  opacity: inView ? 1 : 0,
-                  transform: inView ? 'none' : 'translateY(24px)',
-                  transitionDelay: `${i * 100 + 150}ms`,
-                }}
-              >
-                {/* Hover bg */}
+                className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                style={{ background: '#EFEBE3' }}
+              />
+              <div className="relative">
+                <span
+                  className="block text-xs font-semibold tracking-[0.2em] mb-6"
+                  style={{ color: '#D4C9BC' }}
+                >
+                  {num}
+                </span>
                 <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: '#EFEBE3' }}
-                />
-                <div className="relative">
-                  {/* Number */}
-                  <span
-                    className="block text-xs font-semibold tracking-[0.2em] mb-6"
-                    style={{ color: '#D4C9BC' }}
-                  >
-                    {num}
-                  </span>
-
-                  {/* Icon */}
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-6 transition-all duration-300"
-                    style={{
-                      background: '#F7F4EF',
-                      border: '1px solid #E2DAD0',
-                    }}
-                  >
-                    <Icon
-                      size={16}
-                      style={{ color: '#8B6C1A' }}
-                      aria-hidden="true"
-                    />
-                  </div>
-
-                  <h3
-                    className="text-base font-semibold mb-2.5 tracking-tight"
-                    style={{ color: '#1C1E28' }}
-                  >
-                    {title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#A89E95' }}>
-                    {desc}
-                  </p>
+                  className="w-10 h-10 rounded-xl flex items-center justify-center mb-6"
+                  style={{ background: '#F7F4EF', border: '1px solid #E2DAD0' }}
+                >
+                  <Icon size={16} style={{ color: '#8B6C1A' }} aria-hidden="true" />
                 </div>
+                <h3
+                  className="text-base font-semibold mb-2.5 tracking-tight"
+                  style={{ color: '#1C1E28' }}
+                >
+                  {title}
+                </h3>
+                <p className="text-sm leading-relaxed" style={{ color: '#A89E95' }}>
+                  {desc}
+                </p>
               </div>
-            ))}
-          </div>
-
-          {/* Row 2 */}
-          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3">
-            {BENEFITS.slice(3).map(({ icon: Icon, num, title, desc }, i) => (
-              <div
-                key={title}
-                className="group p-8 sm:p-10 border-r last:border-r-0 relative overflow-hidden transition-all duration-700"
-                style={{
-                  borderColor: '#E2DAD0',
-                  opacity: inView ? 1 : 0,
-                  transform: inView ? 'none' : 'translateY(24px)',
-                  transitionDelay: `${(i + 3) * 100 + 150}ms`,
-                }}
-              >
-                <div
-                  className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
-                  style={{ background: '#EFEBE3' }}
-                />
-                <div className="relative">
-                  <span
-                    className="block text-xs font-semibold tracking-[0.2em] mb-6"
-                    style={{ color: '#D4C9BC' }}
-                  >
-                    {num}
-                  </span>
-                  <div
-                    className="w-10 h-10 rounded-xl flex items-center justify-center mb-6"
-                    style={{ background: '#F7F4EF', border: '1px solid #E2DAD0' }}
-                  >
-                    <Icon size={16} style={{ color: '#8B6C1A' }} aria-hidden="true" />
-                  </div>
-                  <h3
-                    className="text-base font-semibold mb-2.5 tracking-tight"
-                    style={{ color: '#1C1E28' }}
-                  >
-                    {title}
-                  </h3>
-                  <p className="text-sm leading-relaxed" style={{ color: '#A89E95' }}>
-                    {desc}
-                  </p>
-                </div>
-              </div>
-            ))}
-          </div>
+            </div>
+          ))}
         </div>
 
       </div>
