@@ -83,7 +83,7 @@ export function Gallery() {
             </div>
             {/* Photo 6 — fills remaining left-column space, face visible at top */}
             <div className="overflow-hidden rounded-2xl flex-1">
-              {img(5, 'center top')}
+              {img(5, 'center center')}
             </div>
           </div>
 
