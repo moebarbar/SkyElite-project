@@ -1,5 +1,6 @@
 import { Hero } from './components/Hero'
 import { Story } from './components/Story'
+import { Gallery } from './components/Gallery'
 import { Rates } from './components/Rates'
 import { Benefits } from './components/Benefits'
 import { FAQ } from './components/FAQ'
@@ -12,6 +13,7 @@ export default function App() {
       <Hero />
       <main>
         <Story />
+        <Gallery />
         <Rates />
         <Benefits />
         <FAQ />
