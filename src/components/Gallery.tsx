@@ -10,7 +10,7 @@ const PHOTOS = [
   { src: 'https://i.imgur.com/ddR3Vdp.jpg', alt: 'Private jet exterior detail' },
 ]
 
-const FACTORS = [0.07, -0.05, 0.1, -0.08, 0.06, -0.07]
+const FACTORS = [0.04, -0.03, 0.05, -0.04, 0.03, -0.04]
 
 export function Gallery() {
   const { ref, inView } = useInView()
@@ -48,7 +48,7 @@ export function Gallery() {
   return (
     <section
       ref={ref}
-      className="py-16 sm:py-20 px-4 sm:px-8 lg:px-16 bg-cream"
+      className="py-16 sm:py-20 px-4 sm:px-8 lg:px-16 bg-cream overflow-hidden"
       aria-label="Gallery"
     >
       <div className="max-w-7xl mx-auto">
