@@ -127,11 +127,12 @@ export function Story() {
                   />
                   <div className="relative">
                     <p
-                      className="text-4xl sm:text-5xl font-light tracking-tight mb-2"
+                      className="text-4xl sm:text-5xl font-light tracking-tight mb-5"
                       style={{ color: '#1C1E28' }}
                     >
                       {value}
                     </p>
+                    <div className="h-px w-8 mb-4" style={{ background: 'linear-gradient(90deg, #8B6C1A, #C9A96E)' }} />
                     <p
                       className="text-xs tracking-[0.15em] uppercase"
                       style={{ color: '#A89E95' }}

@@ -12,7 +12,7 @@ const PHOTOS = [
     aspect: 'wide',   // landscape
   },
   {
-    src: 'https://images.unsplash.com/photo-1569154941061-e231b4ac4cd8?auto=format&fit=crop&w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80',
     alt: 'Private jet at golden hour on tarmac',
     aspect: 'tall',
   },
@@ -22,7 +22,7 @@ const PHOTOS = [
     aspect: 'wide',
   },
   {
-    src: 'https://images.unsplash.com/photo-1559829425-2b66fce4bfeb?auto=format&fit=crop&w=800&q=80',
+    src: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',
     alt: 'Luxury private jet cabin interior',
     aspect: 'tall',
   },
