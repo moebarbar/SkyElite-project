@@ -135,6 +135,25 @@ export function Gallery() {
               loading="lazy"
             />
           </div>
+
+          {/* Photo 5 — full-width cinematic bottom (col 1-12, row 3) */}
+          <div
+            className="overflow-hidden rounded-2xl"
+            style={{
+              gridColumn: '1 / 13',
+              gridRow: '3 / 4',
+              aspectRatio: '21/9',
+              transition: 'transform 0.6s ease 360ms',
+              transform: inView ? 'none' : 'translateY(24px)',
+            }}
+          >
+            <img
+              src={PHOTOS[4].src}
+              alt={PHOTOS[4].alt}
+              className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+              loading="lazy"
+            />
+          </div>
         </div>
 
         {/* Mobile: simple 2-col grid */}
@@ -149,7 +168,7 @@ export function Gallery() {
             <div
               key={i}
               className="overflow-hidden rounded-xl"
-              style={{ aspectRatio: i === 0 ? '3/4' : '4/3' }}
+              style={{ aspectRatio: i === 0 ? '3/4' : '1/1' }}
             >
               <img
                 src={photo.src}
@@ -159,6 +178,18 @@ export function Gallery() {
               />
             </div>
           ))}
+          {/* Photo 5 — full width on mobile */}
+          <div
+            className="col-span-2 overflow-hidden rounded-xl"
+            style={{ aspectRatio: '16/7' }}
+          >
+            <img
+              src={PHOTOS[4].src}
+              alt={PHOTOS[4].alt}
+              className="w-full h-full object-cover"
+              loading="lazy"
+            />
+          </div>
         </div>
 
       </div>

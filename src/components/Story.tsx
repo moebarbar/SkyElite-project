@@ -115,10 +115,11 @@ export function Story() {
         >
           <div style={{ border: '1px solid #E2DAD0' }}>
             <div className="grid grid-cols-2 lg:grid-cols-4">
-              {STATS.map(({ value, label }) => (
+              {STATS.map(({ value, label }, i) => (
                 <div
                   key={label}
                   className="stats-item py-8 sm:py-10 px-6 sm:px-8 relative group overflow-hidden"
+                  style={i === 1 ? { borderRight: '2px solid #8B6C1A' } : undefined}
                 >
                   {/* Hover fill */}
                   <div
