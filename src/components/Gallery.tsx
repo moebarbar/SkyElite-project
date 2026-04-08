@@ -2,28 +2,28 @@ import { useInView } from '../hooks/useInView'
 
 const PHOTOS = [
   {
-    src: 'https://images.unsplash.com/photo-1540962351504-03099e0a754b?auto=format&fit=crop&w=900&q=80',
-    alt: 'Passenger relaxing in private jet cabin',
-    aspect: 'tall',   // portrait
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1436491865332-7a61a109cc05?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Private jet on runway at dusk',
-    aspect: 'wide',   // landscape
-  },
-  {
-    src: 'https://images.unsplash.com/photo-1528360983277-13d401cdc186?auto=format&fit=crop&w=800&q=80',
-    alt: 'Private jet at golden hour on tarmac',
+    src: 'https://i.imgur.com/sWkpHS4.jpg',
+    alt: 'Private jet experience',
     aspect: 'tall',
   },
   {
-    src: 'https://images.unsplash.com/photo-1474302770737-173ee21bab63?auto=format&fit=crop&w=1200&q=80',
-    alt: 'Private jet in hangar',
+    src: 'https://i.imgur.com/toFLSS4.jpg',
+    alt: 'Private jet on runway',
     aspect: 'wide',
   },
   {
-    src: 'https://images.unsplash.com/photo-1502904550040-7534597429ae?auto=format&fit=crop&w=800&q=80',
-    alt: 'Luxury private jet cabin interior',
+    src: 'https://i.imgur.com/iffZS7f.jpg',
+    alt: 'Private jet exterior',
+    aspect: 'tall',
+  },
+  {
+    src: 'https://i.imgur.com/fQXEdpx.jpg',
+    alt: 'Private aviation',
+    aspect: 'wide',
+  },
+  {
+    src: 'https://i.imgur.com/QDA211b.jpg',
+    alt: 'Luxury cabin interior',
     aspect: 'tall',
   },
 ]
