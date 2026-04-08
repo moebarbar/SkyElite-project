@@ -60,13 +60,13 @@ export function Gallery() {
             transition: 'opacity 0.9s ease 0.1s',
           }}
         >
-          {/* Photo 1 — tall left (col 1-4, rows 1-2) */}
+          {/* Photo 1 — tall left (col 1-4, rows 1-3) */}
           <div
             className="overflow-hidden rounded-2xl"
             style={{
               gridColumn: '1 / 5',
-              gridRow: '1 / 3',
-              aspectRatio: '3/4',
+              gridRow: '1 / 4',
+              aspectRatio: '2/3',
               transition: 'transform 0.6s ease 0ms',
               transform: inView ? 'none' : 'translateY(24px)',
             }}
@@ -136,13 +136,13 @@ export function Gallery() {
             />
           </div>
 
-          {/* Photo 5 — full-width cinematic bottom (col 1-12, row 3) */}
+          {/* Photo 5 — compact right strip (col 5-12, row 3) */}
           <div
             className="overflow-hidden rounded-2xl"
             style={{
-              gridColumn: '1 / 13',
+              gridColumn: '5 / 13',
               gridRow: '3 / 4',
-              aspectRatio: '21/9',
+              aspectRatio: '16/6',
               transition: 'transform 0.6s ease 360ms',
               transform: inView ? 'none' : 'translateY(24px)',
             }}
